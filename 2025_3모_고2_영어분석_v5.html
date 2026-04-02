@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>동남고2 2026 1학기 중간고사 모의고사 시험범위 분석 | Witheun by.은서쌤</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --g900:#111827; --g800:#1F2937; --g700:#374151; --g600:#4B5563;
+      --g500:#6B7280; --g400:#9CA3AF; --g300:#D1D5DB; --g200:#E5E7EB;
+      --g100:#F3F4F6; --g50:#F9FAFB; --w:#FFFFFF;
+      --blue:#3182F6;  --blue-bg:#EFF6FF;  --blue-mid:#DBEAFE;
+      --green:#16A34A; --green-bg:#F0FDF4; --green-mid:#DCFCE7;
+      --red:#DC2626;   --red-bg:#FEF2F2;   --red-mid:#FEE2E2;
+      --orange:#EA580C;--orange-bg:#FFF7ED;
+      --purple:#7C3AED;--purple-bg:#F5F3FF;
+      --yellow:#CA8A04;--yellow-bg:#FEFCE8;--yellow-mid:#FEF9C3;
+      --teal:#0891B2;  --teal-bg:#ECFEFF;
+      --radius-sm:6px; --radius-md:10px; --radius-lg:14px;
+      --shadow-sm:0 1px 2px rgba(0,0,0,.05);
+      --shadow-md:0 4px 12px rgba(0,0,0,.06);
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,
+        'Segoe UI',system-ui,sans-serif;
+      font-size:15px;letter-spacing:-0.4px;line-height:1.75;
+      background:#ffffff;color:var(--g900);
+      -webkit-font-smoothing:antialiased;
+    }
+    .wrap{max-width:680px;margin:0 auto;padding:0 20px 96px;}
+    .top-header{padding:48px 0 28px;border-bottom:1px solid var(--g200);margin-bottom:0;}
+    .top-header h1{font-size:26px;font-weight:800;letter-spacing:-0.8px;color:var(--g900);line-height:1.3;margin-bottom:6px;}
+    .top-header .sub{font-size:14px;color:var(--g500);font-weight:500;letter-spacing:-0.2px;}
+    .pill-nav{display:flex;flex-wrap:wrap;gap:6px;position:sticky;top:0;z-index:100;background:#fff;padding:14px 0 12px;border-bottom:1px solid var(--g200);margin-bottom:32px;}
+    .pill{height:32px;padding:0 14px;border-radius:100px;font-size:13px;font-weight:600;letter-spacing:-0.2px;border:1.5px solid var(--g200);background:#fff;color:var(--g500);cursor:pointer;transition:all .18s ease;display:inline-flex;align-items:center;}
+    .pill:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-bg);}
+    .pill.active{background:var(--g900);color:#fff;border-color:var(--g900);}
+    .q-panel{display:none;animation:fadeUp .25s ease;}
+    .q-panel.active{display:block;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    .q-card{background:#fff;border:1px solid var(--g200);border-radius:var(--radius-lg);padding:28px 24px;margin-bottom:16px;}
+    .q-title{display:flex;align-items:center;gap:10px;padding-bottom:16px;border-bottom:1px solid var(--g100);margin-bottom:20px;}
+    .q-num{font-size:12px;font-weight:700;letter-spacing:.5px;background:var(--g900);color:#fff;padding:3px 10px;border-radius:100px;flex-shrink:0;}
+    .q-type{font-size:13px;font-weight:600;color:var(--g700);line-height:1.4;letter-spacing:-0.2px;}
+    .q-type-tag{font-size:11px;font-weight:700;letter-spacing:.2px;padding:3px 8px;border-radius:100px;margin-left:auto;flex-shrink:0;text-transform:uppercase;}
+    .q-type-tag.claim  {background:var(--blue-mid);  color:var(--blue);}
+    .q-type-tag.meaning{background:var(--purple-bg); color:var(--purple);}
+    .q-type-tag.gist   {background:var(--orange-bg); color:var(--orange);}
+    .q-type-tag.title  {background:var(--green-mid); color:var(--green);}
+    .q-type-tag.tf     {background:var(--orange-bg); color:var(--orange);}
+    .q-type-tag.vocab  {background:var(--red-mid);   color:var(--red);}
+    .q-type-tag.blank  {background:var(--teal-bg);   color:var(--teal);}
+    .q-type-tag.order  {background:var(--yellow-mid);color:var(--yellow);}
+    .q-type-tag.insert {background:var(--purple-bg); color:var(--purple);}
+    .q-type-tag.flow   {background:var(--orange-bg); color:var(--orange);}
+    .q-type-tag.summary{background:var(--teal-bg);   color:var(--teal);}
+    .sent{padding:14px 16px;margin-bottom:10px;border-left:2px solid var(--g200);background:#fff;border-radius:0 var(--radius-sm) var(--radius-sm) 0;transition:border-color .15s;}
+    .sent:hover{border-left-color:var(--g400);}
+    .sent.key-sent{border-left:2px solid var(--yellow);background:var(--yellow-bg);border-radius:0 var(--radius-sm) var(--radius-sm) 0;}
+    .sent.wrong-sent{border-left:2px solid var(--red);background:var(--red-bg);}
+    .sent-num{font-size:11px;font-weight:700;letter-spacing:.3px;color:var(--g400);text-transform:uppercase;margin-bottom:6px;}
+    .eng-line{font-size:15px;font-weight:500;color:var(--g900);line-height:1.85;margin-bottom:12px;word-break:keep-all;}
+    .eng-line u{text-decoration-color:var(--red);text-underline-offset:3px;text-decoration-thickness:1.5px;}
+    .parse-box{background:var(--g50);border:1px solid var(--g100);border-radius:var(--radius-md);padding:10px 14px;margin-bottom:10px;}
+    .phrase{display:flex;align-items:baseline;gap:7px;padding:3px 0;font-size:13px;line-height:1.6;}
+    .plabel{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.3px;padding:1px 7px;border-radius:100px;flex-shrink:0;min-width:30px;text-align:center;}
+    .plabel.subj{background:var(--blue-mid);  color:var(--blue);}
+    .plabel.verb{background:var(--red-mid);   color:var(--red);}
+    .plabel.obj {background:var(--green-mid); color:var(--green);}
+    .plabel.comp{background:var(--orange-bg); color:var(--orange);}
+    .plabel.mod {background:var(--g100);      color:var(--g500);}
+    .plabel.conj{background:var(--purple-bg); color:var(--purple);}
+    .peng{color:var(--g800);font-weight:500;}
+    .pkor{color:var(--g500);font-size:12px;}
+    .grammar-note{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;background:var(--blue-bg);border-radius:var(--radius-sm);padding:10px 14px;margin-bottom:10px;font-size:13px;color:var(--g700);line-height:1.7;}
+    .gn-tag{display:inline-flex;align-items:center;font-size:10px;font-weight:700;letter-spacing:.3px;padding:2px 8px;border-radius:100px;flex-shrink:0;}
+    .gn-tag.grammar  {background:var(--blue);  color:#fff;}
+    .gn-tag.blank    {background:var(--teal);  color:#fff;}
+    .gn-tag.vocab-tag{background:var(--green); color:#fff;}
+    .vocab-badges{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px;}
+    .badge{font-size:11px;font-weight:600;letter-spacing:-0.1px;padding:3px 10px;border-radius:100px;}
+    .badge.syn  {background:var(--green-bg);color:var(--green);}
+    .badge.ant  {background:var(--red-bg);  color:var(--red);}
+    .badge.key  {background:var(--blue-bg); color:var(--blue);}
+    .badge.wrong{background:var(--red-mid); color:var(--red);}
+    .kor-line{font-size:13px;color:var(--g500);line-height:1.75;padding:6px 0 0 12px;border-left:2px solid var(--g200);}
+    .choices{background:var(--g50);border:1px solid var(--g100);border-radius:var(--radius-md);padding:14px 18px;margin-bottom:14px;}
+    .choice{display:flex;align-items:flex-start;gap:8px;padding:5px 0;font-size:13.5px;line-height:1.6;border-bottom:1px solid var(--g100);color:var(--g700);}
+    .choice:last-child{border-bottom:none;}
+    .choice .cnum{font-weight:700;color:var(--g400);min-width:16px;flex-shrink:0;}
+    .choice.correct{color:var(--blue);font-weight:700;}
+    .choice.correct .cnum{color:var(--blue);}
+    .choice.wrong-ans{color:var(--red);}
+    .choice.wrong-ans .cnum{color:var(--red);}
+    .summary-box{background:#fff;border:1px solid var(--g200);border-top:2px solid var(--g900);border-radius:0 0 var(--radius-md) var(--radius-md);padding:18px 20px;margin-top:20px;}
+    .sum-item{padding:10px 0;border-bottom:1px solid var(--g100);font-size:13px;line-height:1.75;}
+    .sum-item:last-child{border-bottom:none;padding-bottom:0;}
+    .sum-label{display:inline-flex;align-items:center;font-size:10px;font-weight:700;letter-spacing:.3px;padding:2px 9px;border-radius:100px;margin-bottom:5px;text-transform:uppercase;}
+    .sum-label.logic {background:var(--yellow-mid);color:var(--yellow);}
+    .sum-label.answer{background:var(--blue-mid);  color:var(--blue);}
+    .sum-label.wrong {background:var(--red-mid);   color:var(--red);}
+    .sum-label.voca  {background:var(--green-mid); color:var(--green);}
+    .sum-content{color:var(--g600);}
+    .order-flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:14px 18px;margin-bottom:14px;background:var(--blue-bg);border:1px solid var(--blue-mid);border-radius:var(--radius-md);font-size:13px;font-weight:700;color:var(--blue);}
+    .order-flow .arrow{color:var(--g400);font-weight:400;}
+    .section-label{font-size:11px;font-weight:700;color:var(--g400);letter-spacing:.5px;margin:20px 0 8px;}
+    .summary-sentence{background:var(--blue-bg);border:1px solid var(--blue-mid);border-radius:var(--radius-md);padding:16px 20px;margin-bottom:14px;font-size:14px;line-height:1.8;color:var(--g800);}
+    .summary-sentence .blank{background:var(--green-mid);padding:2px 8px;border-radius:100px;font-weight:700;color:var(--green);}
+    .footer{text-align:center;padding:32px 0 24px;margin-top:48px;border-top:1px solid var(--g200);}
+    .footer .brand{font-size:15px;font-weight:800;color:var(--g900);letter-spacing:-0.4px;margin-bottom:4px;}
+    .footer .by{font-size:13px;color:var(--g400);font-weight:500;}
+    @media(max-width:520px){.wrap{padding:0 14px 72px;}.q-card{padding:20px 16px;}.top-header{padding:32px 0 20px;}.top-header h1{font-size:21px;}.eng-line{font-size:14.5px;}.pill{height:30px;padding:0 12px;font-size:12px;}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top-header">
+    <h1>동남고2 2026 1학기 중간고사 모의고사 시험범위 분석</h1>
+    <div class="sub">Witheun by.은서쌤</div>
+  </div>
+  <div class="pill-nav" id="pillNav">
+    <span class="pill active" data-q="q20">20</span>
+    <span class="pill" data-q="q21">21</span>
+    <span class="pill" data-q="q22">22</span>
+    <span class="pill" data-q="q23">23</span>
+    <span class="pill" data-q="q24">24</span>
+    <span class="pill" data-q="q29">29</span>
+    <span class="pill" data-q="q30">30</span>
+    <span class="pill" data-q="q31">31</span>
+    <span class="pill" data-q="q32">32</span>
+    <span class="pill" data-q="q33">33</span>
+  </div>
+
+  <!-- Q20: 주장 -->
+  <div class="q-panel active" id="q20">
+    <div class="q-card">
+      <div class="q-title">
+        <span class="q-num">20</span>
+        <span class="q-type">다음 글에서 필자가 주장하는 바로 가장 적절한 것은?</span>
+        <span class="q-type-tag claim">주장</span>
+      </div>
+
+      <div class="sent">
+        <div class="sent-num">01</div>
+        <div class="eng-line">Fans who are inclined to spend a lot of time thinking about what athletes owe them as fans should also think about the corresponding obligations that fans might have as fans.</div>
+        <div class="parse-box">
+          <div class="phrase"><span class="plabel subj">S</span><span class="peng">Fans who are inclined...</span><span class="pkor">~하는 성향이 있는 팬들</span></div>
+          <div class="phrase"><span class="plabel verb">V</span><span class="peng">should think</span><span class="pkor">생각해야 한다</span></div>
+          <div class="phrase"><span class="plabel obj">O</span><span class="peng">about the corresponding obligations that fans might have</span><span class="pkor">팬이 가질 수 있는 상응하는 의무에 대해</span></div>
+        </div>
+        <div class="grammar-note">
+          <span class="gn-tag grammar">★어법</span>
+          주격 관계대명사 who절이 Fans를 수식하고, should + also think 조동사 구문으로 강조.<br>
+          "corresponding obligations"는 선수에게 요구하는 권리와 대응되는 의무를 의미.
+        </div>
+        <div class="vocab-badges">
+          <span class="badge key">inclined to: ~하는 성향이 있는 = prone to</span>
+          <span class="badge syn">corresponding: 상응하는 = matching</span>
+        </div>
+        <div class="kor-line">선수가 팬에게 무엇을 빚지고 있는지에 대해 생각하는 데 많은 시간을 쏟는 성향이 있는 팬들은, 팬으로서 팬이 가질 수 있는 상응하는 의무에 대해서도 생각해야 한다.</div>
+      </div>
+
+      <div class="sent">
+        <div class="sent-num">02</div>
+        <div class="eng-line">One who thinks only about what they are entitled to receive from their friends without ever giving a moment's thought to what they owe their friends is, to put it mildly, not a very good friend.</div>
+        <div class="parse-box">
+          <div class="phrase"><span class="plabel subj">S</span><span class="peng">One who thinks only about...</span><span class="pkor">~만 생각하는 사람</span></div>
+          <div class="phrase"><span class="plabel verb">V</span><span class="peng">is</span><span class="pkor">이다</span></div>
+          <div class="phrase"><span class="plabel comp">C</span><span class="peng">not a very good friend</span><span class="pkor">좋은 친구가 아니다</span></div>
+        </div>
+        <div class="grammar-note">
+          <span class="gn-tag grammar">★어법</span>
+          "to put it mildly"는 삽입어구로 "부드럽게 말하자면"의 의미.<br>
+          entitled to + 명사 = ~을 받을 자격이 있다.
+        </div>
+        <div class="vocab-badges">
+          <span class="badge key">entitled to: ~을 받을 자격이 있는 = deserving of</span>
+          <span class="badge key">to put it mildly: 부드럽게 말하자면 = so to speak</span>
+        </div>
+        <div class="kor-line">친구들로부터 받을 자격이 있는 것만을 생각하고, 자신이 친구에게 무엇을 줘야 하는지에 대해 잠시도 생각하지 않는 사람은, 부드럽게 말하자면, 그리 좋은 친구가 아니다.</div>
+      </div>
+
+      <div class="sent">
+        <div class="sent-num">03</div>
+        <div class="eng-line">Similarly, fans who only think about what athletes owe them without ever thinking about what they owe to athletes have failed to take the fan/athlete relationship all that seriously.</div>
+        <div class="parse-box">
+          <div class="phrase"><span class="plabel subj">S</span><span class="peng">fans who only think about...</span><span class="pkor">~만 생각하는 팬들</span></div>
+          <div class="phrase"><span class="plabel verb">V</span><span class="peng">have failed to take</span><span class="pkor">~하지 못했다</span></div>
+          <div class="phrase"><span class="plabel obj">O</span><span class="peng">the fan/athlete relationship</span><span class="pkor">팬/선수 관계</span></div>
+        </div>
+        <div class="grammar-note">
+          <span class="gn-tag grammar">★어법</span>
+          "have failed to-V"는 현재완료로 과거부터 현재까지의 실패 상태를 강조.<br>
+          "all that + 형용사" = "그다지 ~하지 않은" (부정의 뉘앙스).
+        </div>
+        <div class="vocab-badges">
+          <span class="badge key">owe to: ~에게 의무가 있다</span>
+          <span class="badge key">have failed to: ~하지 못했다 = have been unable to</span>
+          <span class="badge key">all that + adj: 그다지 ~하지 않은 = not so/very much</span>
+        </div>
+        <div class="kor-line">마찬가지로, 선수들이 그들에게 무엇을 빚졌는지만 생각하고 자신이 선수에게 무엇을 빚지고 있는지에 대해서는 생각하지 않는 팬들은 팬/선수 관계를 그다지 진지하게 받아들이지 못한 것이다.</div>
+      </div>
+
+      <div class="sent key-sent">
+        <div class="sent-num">★ 주제문</div>
+        <div class="eng-line">As in nearly every other area of human life, whatever special rights fans may possess are limited by a corresponding set of obligations, and fans who never think about how they can be better fans even as they confidently opine about what athletes owe them are hardly fulfilling their end of the bargain.</div>
+        <div class="parse-box">
+          <div class="phrase"><span class="plabel subj">S</span><span class="peng">whatever special rights fans may possess</span><span class="pkor">팬이 가질 수 있는 어떤 특별한 권리든</span></div>
+          <div class="phrase"><span class="plabel verb">V</span><span class="peng">are limited by</span><span class="pkor">~에 의해 제한된다</span></div>
+          <div class="phrase"><span class="plabel obj">O</span><span class="peng">a corresponding set of obligations</span><span class="pkor">상응하는 의무의 집합</span></div>
+        </div>
+        <div class="parse-box">
+          <div class="phrase"><span class="plabel conj">CONJ</span><span class="peng">and fans who never think about how they can be better fans even as they opine about what athletes owe them</span><span class="pkor">그리고 자신이 어떻게 더 나은 팬이 될 수 있는지에 대해서는 생각하지 않으면서도 선수가 자신에게 무엇을 빚지고 있는지에 대해 의견을 밝히는 팬들</span></div>
+          <div class="phrase"><span class="plabel verb">V</span><span class="peng">are hardly fulfilling</span><span class="pkor">거의 이행하지 않고 있다</span></div>
+          <div class="phrase"><span class="plabel obj">O</span><span class="peng">their end of the bargain</span><span class="pkor">자신의 의무</span></div>
+        </div>
+        <div class="grammar-note">
+          <span class="gn-tag grammar">★어법</span>
+          "whatever + 명사 + S + V"는 양보절로 "~하든 간에".<br>
+          "even as" = "~하면서도", 대조의 의미로 권리와 의무의 불균형을 강조.<br>
+          💡 <strong>분사구문 풀어쓰기</strong>: opine about what athletes owe them = and they confidently express opinions about what athletes owe them (자신감 있게 선수들이 자신에게 무엇을 빚졌는지에 대해 의견을 밝히다).
+        </div>
+        <div class="vocab-badges">
+          <span class="badge key">opine: 의견을 말하다 = assert, claim</span>
+          <span class="badge key">fulfill one's end of the bargain: 자신의 의무를 다하다 = do one's part</span>
+          <span class="badge key">even as: ~하면서도 = while simultaneously</span>
+          <span class="badge key">hardly: 거의 ~않는 = scarcely</span>
+        </div>
+        <div class="kor-line">인간 삶의 거의 모든 다른 영역에서와 마찬가지로, 팬이 가질 수 있는 어떤 특별한 권리든 상응하는 의무의 집합으로 제한되며, 선수가 자신에게 무엇을 빚지고 있는지에 대해 자신 있게 의견을 밝히면서도 자신이 어떻게 더 나은 팬이 될 수 있는지에 대해서는 생각하지 않는 팬들은 자신의 의무를 거의 이행하지 않고 있는 것이다.</div>
+      </div>
+
+      <div class="choices">
+        <div class="choice"><span class="cnum">①</span> 팬과 선수는 승리를 위해 동반자 관계를 유지해야 한다.</div>
+        <div class="choice"><span class="cnum">②</span> 팬은 팀의 경기 결과보다 자기의 삶에 더 집중해야 한다.</div>
+        <div class="choice correct"><span class="cnum">③ ✓</span> 팬은 선수에게 요구하는 만큼 자신의 의무도 고민해야 한다.</div>
+        <div class="choice"><span class="cnum">④</span> 선수는 팬의 기대를 충족시키기 위해 경기력을 향상해야 한다.</div>
+        <div class="choice"><span class="cnum">⑤</span> 선수는 팬을 친구처럼 여기고 팬과 적극적으로 소통해야 한다.</div>
+      </div>
+
+      <div class="summary-box">
+        <div class="sum-item">
+          <div class="sum-label logic">💡 핵심 논리</div>
+          <div class="sum-content">권리와 의무는 항상 쌍을 이룬다. 팬들이 선수에게 무엇을 요구할 권리가 있다면, 팬 자신도 상응하는 의무를 다해야 한다. 단방향으로 요구만 하면서 자신의 책임은 외면하는 것은 관계를 진지하게 여기지 않는 것이다.</div>
+        </div>
+        <div class="sum-item">
+          <div class="sum-label answer">🎯 정답 및 근거</div>
+          <div class="sum-content"><strong>③ 팬은 선수에게 요구하는 만큼 자신의 의무도 고민해야 한다.</strong><br>S4의 핵심 메시지: "whatever special rights fans may possess are limited by a corresponding set of obligations" → 권리와 의무는 불가분의 관계. 팬이 요구할 권리가 있을수록, 자신도 그에 맞는 의무를 져야 한다는 주장.</div>
+        </div>
+        <div class="sum-item">
+          <div class="sum-label wrong">✗ 오답 분석</div>
+          <div class="sum-content"><strong>①</strong> "승리를 위해 동반자 관계" → 본문에 승리나 협력 관계 언급 없음.<br><strong>②</strong> "자기의 삶에 더 집중" → 글은 팬이 인생을 외면하라는 것이 아니라, 팬으로서의 의무를 인식하라는 뜻.<br><strong>④</strong> "선수는 팬의 기대를 충족시켜야" → 주체가 선수가 되어버림. 글은 일관되게 팬의 의무를 강조.<br><strong>⑤</strong> "선수와 적극적으로 소통" → 친구 비유는 팬의 태도를 설명하는 예시일 뿐, 선수의 행동을 강조하지 않음.</div>
+        </div>
+        <div class="sum-item">
+          <div class="sum-label voca">📚 핵심 어휘</div>
+          <div class="sum-content"><strong>inclined to</strong> (~하는 성향이 있는) · <strong>owe</strong> (빚지고 있다) · <strong>corresponding</strong> (상응하는) · <strong>obligation</strong> (의무) · <strong>entitled to</strong> (~을 받을 자격이 있는) · <strong>opine</strong> ((의견을) 말하다) · <strong>fulfill one's end</strong> (자신의 의무를 다하다)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q21: 함축 의미 -->
+  <div class="q-panel" id="q21">
+    <div class="q-card">
+      <div class="q-title">
+        <span class="q-num">21</span>
+        <span class="q-type">밑줄 친 keeping the ball on a slope가 다음 글에서 의미하는 바로 가장 적절한 것은?</span>
+        <span class="q-type-tag meaning">함축의미</span>
+      </div>
+
+      <div class="sent">
+        <div class="sent-num">01</div>
+        <div class="eng-line">The concept of ecosystem states should be familiar to anyone with a home vegetable garden.</div>
+        <div class="parse-box">
+          <div class="phrase"><span class="plabel subj">S</span><span class="peng">The concept of ecosystem states</span><span class="pkor">생태계 상태의 개념</span></div>
+          <div class="phrase"><span class="plabel verb">V</span><span class="peng">should be familiar to</span><span class="pkor">~에게 친숙해야 한다</span></div>
+        </div>
+        <div class="grammar-note"><span class="gn-tag grammar">★어법</span> "should be familiar to + 명사" 구문. 주어가 추상명사(concept)이므로 "~에게 친숙해야 한다"는 뜻.</div>
+        <div class="vocab-badges"><span class="badge key">be familiar to: ~에게 친숙한 = well-known to</span></div>
+        <div class="kor-line">생태계 상태의 개념은 집에 채소밭을 가진 사람이라면 누구에게나 친숙해야 한다.</div>
+      </div>
+
+      <div class="sent">
+        <div class="sent-num">02</div>
+        <div class="eng-line">The garden is a small ecosystem that the grower attempts to keep in a specific state, namely the maximization of fruit and vegetable production.</div>
+        <div class="parse-box">
+          <div class="phrase"><span class="plabel subj">S</span><span class="peng">The garden</span><span class="pkor">정원</span></div>
+          <div class="phrase"><span class="plabel verb">V</span><span class="peng">is</span><span class="pkor">이다</span></div>
+          <div class="phrase"><span class="plabel comp">C</span><span class="peng">a small ecosystem that the grower attempts to keep in a specific state</span><span class="pkor">재배자가 특정 상태를 유지하려고 시도하는 소규모 생태계</span></div>
+        </div>
+        <div class="grammar-note"><span class="gn-tag grammar">★어법</span> "namely" = 즉(동격 접속사), "attempt to-V" = ~하려고 시도하다.<br>정원의 목표는 자연 상태가 아닌 "인위적 상태"(생산 극대화)를 유지하는 것.</div>
+        <div class="vocab-badges"><span class="badge key">attempt to: ~하려고 시도하다 = try to</span><span class="badge key">namely: 즉 = that is to say</span></div>
+        <div class="kor-line">정원은 재배자가 특정 상태, 즉 과일과 채소 생산의 극대화를 유지하려고 시도하는 소규모 생태계이다.</div>
+      </div>
+
+      <div class="sent">
+        <div class="sent-num">03</div>
+        <div class="eng-line">To achieve this, the grower is almost always intervening in the dynamics of the ecosystem; they remove unwanted plants that begin to grow and perhaps spray insecticides and fence off the patch to stop insects and other animals from consuming the vegetables.</div>
+        <div class="parse-box">
+          <div class="phrase"><span class="plabel mod">MOD</span><span class="peng">To achieve this</span><span class="pkor">이를 달성하기 위해</span></div>
+          <div class="phrase"><span class="plabel subj">S</span><span class="peng">the grower</span><span class="pkor">재배자</span></div>
+          <div class="phrase"><span class="plabel verb">V</span><span class="peng">is almost always intervening</span><span class="pkor">거의 항상 개입하고 있다</span></div>
+        </div>
+        <div class="grammar-note"><span class="gn-tag grammar">★어법</span> "stop A from -ing" = A가 ~하지 못하게 막다 (중요 구문).<br>"almost always intervening" = 끊임없는 개입의 필요성을 강조.</div>
+        <div class="vocab-badges"><span class="badge key">intervene in: ~에 개입하다 = get involved in</span><span class="badge key">stop A from -ing: A가 ~하지 못하게 막다 = prevent</span><span class="badge key">fence off: 울타리를 치다 = enclose</span></div>
+        <div class="kor-line">이를 달성하기 위해, 재배자는 거의 항상 생태계의 역학 관계에 개입한다; 그들은 자라기 시작하는 원치 않는 식물을 제거하고, 살충제를 뿌리고, 해충과 다른 동물들이 채소를 먹는 것을 막기 위해 밭에 울타리를 친다.</div>
+      </div>
+
+      <div class="sent key-sent">
+        <div class="sent-num">★ 밑줄 문장</div>
+        <div class="eng-line">Since maximizing vegetable growth is an inherently unstable state for the ecosystem, the grower is effectively keeping the ball on a slope.</div>
+        <div class="parse-box">
+          <div class="phrase"><span class="plabel conj">CONJ</span><span class="peng">Since maximizing vegetable growth is an inherently unstable state</span><span class="pkor">채소 성장을 극대화하는 것은 본질적으로 불안정한 상태이기 때문에</span></div>
+          <div class="phrase"><span class="plabel subj">S</span><span class="peng">the grower</span><span class="pkor">재배자</span></div>
+          <div class="phrase"><span class="plabel verb">V</span><span class="peng">is effectively keeping</span><span class="pkor">사실상 유지하고 있다</span></div>
+          <div class="phrase"><span class="plabel obj">O</span><span class="peng">the ball on a slope</span><span class="pkor">경사면 위의 공</span></div>
+        </div>
+        <div class="grammar-note"><span class="gn-tag grammar">★어법</span> "Since" = 이유 접속사. "inherently unstable" = 본질적으로 불안정한.<br>💡 <strong>분사구문 풀어쓰기</strong>: "keeping the ball on a slope"는 은유(metaphor). 경사면의 공 = 놓으면 자동으로 굴러내려감 = 끊임없는 유지 필요 = 항상 개입해야 함.</div>
+        <div class="vocab-badges"><span class="badge key">inherently: 본질적으로 = intrinsically</span><span class="badge key">effectively: 사실상, 효과적으로 = essentially, in effect</span></div>
+        <div class="kor-line">채소 성장을 극대화하는 것은 생태계에 있어 본질적으로 불안정한 상태이기 때문에, 재배자는 사실상 경사면에서 공을 유지하는 상태이다.</div>
+      </div>
+
+      <div class="sent">
+        <div class="sent-num">05</div>
+        <div class="eng-line">If the grower stops intervening, even for a day, the ecosystem, that small patch of ground, will naturally begin to shift to a more stable state.</div>
+        <div class="parse-box">
+          <div class="phrase"><span class="plabel conj">CONJ</span><span class="peng">If the grower stops intervening, even for a day</span><span class="pkor">재배자가 단 하루라도 개입을 멈추면</span></div>
+          <div class="phrase"><span class="plabel subj">S</span><span class="peng">the ecosystem</span><span class="pkor">그 생태계</span></div>
+          <div class="phrase"><span class="plabel verb">V</span><span class="peng">will naturally begin to shift</span><span class="pkor">자연스럽게 이동하기 시작할 것이다</span></div>
+        </div>
+        <div class="vocab-badges"><span class="badge key">shift to: ~으로 이동/전환하다 = move to, change to</span></div>
+        <div class="kor-line">재배자가 단 하루라도 개입을 멈추면, 그 생태계, 즉 그 작은 밭은 자연스럽게 더 안정된 상태로 이동하기 시작할 것이다.</div>
+      </div>
+
+      <div class="sent">
+        <div class="sent-num">06</div>
+        <div class="eng-line">Vegetables may still grow, but yield will almost certainly be lower as other plants crowd out the vegetables and wildlife consume the produce.</div>
+        <div class="parse-box">
+          <div class="phrase"><span class="plabel subj">S</span><span class="peng">yield</span><span class="pkor">수확량</span></div>
+          <div class="phrase"><span class="plabel verb">V</span><span class="peng">will almost certainly be</span><span class="pkor">거의 확실히 ~일 것이다</span></div>
+          <div class="phrase"><span class="plabel comp">C</span><span class="peng">lower</span><span class="pkor">낮을 것이다</span></div>
+          <div class="phrase"><span class="plabel mod">MOD</span><span class="peng">as other plants crowd out the vegetables and wildlife consume the produce</span><span class="pkor">다른 식물들이 채소를 밀어내고 야생 동물들이 농산물을 먹으면서</span></div>
+        </div>
+        <div class="grammar-note"><span class="gn-tag grammar">★어법</span> "crowd out" = 밀어내다, 우위에서 배제하다 (구동사).</div>
+        <div class="vocab-badges"><span class="badge key">crowd out: 밀어내다 = displace, push out</span></div>
+        <div class="kor-line">채소는 여전히 자랄 수 있지만, 다른 식물들이 채소를 밀어내고 야생 동물들이 농산물을 먹으면서 수확량은 거의 확실히 낮아질 것이다.</div>
+      </div>
+
+      <div class="choices">
+        <div class="choice"><span class="cnum">①</span> improving the garden's environment without human intervention</div>
+        <div class="choice"><span class="cnum">②</span> altering the ecosystem of the garden to maximize its stability</div>
+        <div class="choice"><span class="cnum">③</span> balancing increased plant diversity with ecosystem stability</div>
+        <div class="choice correct"><span class="cnum">④ ✓</span> maintaining an unstable ecosystem for high vegetable yield</div>
+        <div class="choice"><span class="cnum">⑤</span> boosting the harmonious growth of plants in the wild</div>
+      </div>
+
+      <div class="summary-box">
+        <div class="sum-item">
+          <div class="sum-label logic">💡 핵심 논리</div>
+          <div class="sum-content">"keeping the ball on a slope"는 경사면의 공처럼, 놓으면 자동으로 굴러내려가므로 계속 손으로 유지해야 한다는 은유다. 채소 생산 극대화는 생태계의 자연적 안정 상태와 반대되는 불안정한 상태이므로, 재배자가 끊임없이 개입(제초, 살충제, 울타리 설치)해야만 유지될 수 있다는 뜻이다.</div>
+        </div>
+        <div class="sum-item">
+          <div class="sum-label answer">🎯 정답 및 근거</div>
+          <div class="sum-content"><strong>④ maintaining an unstable ecosystem for high vegetable yield</strong><br>해석: "높은 채소 수확량을 위해 불안정한 생태계를 유지하는 것"<br>S4의 핵심: "maximizing vegetable growth is an inherently unstable state" (채소 극대화 = 본질적 불안정) + "keeping the ball on a slope" (경사면의 공 = 끊임없이 유지해야 함)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q22: 요지 -->
+  <div class="q-panel" id="q22">
+    <div class="q-card">
+      <div class="q-title">
+        <span class="q-num">22</span>
+        <span class="q-type">다음 글의 요지로 가장 적절한 것은?</span>
+        <span class="q-type-tag gist">요지</span>
+      </div>
+
+      <div class="sent key-sent">
+        <div class="sent-num">★ 주제 문장</div>
+        <div class="eng-line">Commitment is the glue holding together characteristically human forms of social life.</div>
+        <div class="parse-box">
+          <div class="phrase"><span class="plabel subj">S</span><span class="peng">Commitment</span><span class="pkor">약속, 헌신</span></div>
+          <div class="phrase"><span class="plabel verb">V</span><span class="peng">is</span><span class="pkor">이다</span></div>
+          <div class="phrase"><span class="plabel comp">C</span><span class="peng">the glue holding together characteristically human forms of social life</span><span class="pkor">특징적인 인간 사회 형태를 함께 결합시키는 접착제</span></div>
+        </div>
+        <div class="grammar-note"><span class="gn-tag grammar">★어법</span> "holding together" = 현재분사로 "glue"를 수식. 약속이 사회 형태를 "결합시키는" 역할을 강조.</div>
+        <div class="vocab-badges"><span class="badge key">holding together: 결합시키는 = joining together</span></div>
+        <div class="kor-line">약속은 특징적인 인간 사회 형태를 함께 결합시키는 접착제이다.</div>
+      </div>
+
+      <div class="sent key-sent">
+        <div class="sent-num">★ 핵심</div>
+        <div class="eng-line">Commitments make individuals' behavior predictable in the face of fluctuations in their desires and interests, thereby facilitating the planning and coordination of joint actions involving multiple agents.</div>
+        <div class="parse-box">
+          <div class="phrase"><span class="plabel subj">S</span><span class="peng">Commitments</span><span class="pkor">약속들</span></div>
+          <div class="phrase"><span class="plabel verb">V</span><span class="peng">make</span><span class="pkor">만들다</span></div>
+          <div class="phrase"><span class="plabel obj">O</span><span class="peng">individuals' behavior</span><span class="pkor">개인들의 행동</span></div>
+          <div class="phrase"><span class="plabel comp">C</span><span class="peng">predictable</span><span class="pkor">예측 가능한</span></div>
+        </div>
+        <div class="grammar-note"><span class="gn-tag grammar">★어법</span> make + O + C 구문. thereby는 분사구 부사절로 결과를 나타냄.<br>💡 <strong>분사구문 풀어쓰기</strong>: thereby facilitating = and this facilitates the planning and coordination (그리고 이것은 계획과 조정을 촉진한다).</div>
+        <div class="vocab-badges"><span class="badge key">in the face of: ~에도 불구하고 = despite</span><span class="badge key">thereby: 그에 따라, 그로 인해 = thus</span></div>
+        <div class="kor-line">약속은 욕구와 관심사의 변동에도 불구하고 개인들의 행동을 예측 가능하게 만들며, 따라서 여러 행위자를 포함한 공동 행동의 계획과 조정을 촉진한다.</div>
+      </div>
+
+      <div class="sent">
+        <div class="sent-num">03</div>
+        <div class="eng-line">Moreover, commitments make people willing to perform actions that they would not otherwise perform.</div>
+        <div class="kor-line">더욱이, 약속은 사람들이 다른 경우에는 수행하지 않을 행동을 기꺼이 수행하도록 만든다.</div>
+      </div>
+
+      <div class="sent">
+        <div class="sent-num">04</div>
+        <div class="eng-line">For example, a taxi driver picks up his clients and transports them to their desired destination because they are committed to paying him afterwards for the service, and a construction worker performs her job every day because her employer has made a credible commitment to pay her at the end of the month.</div>
+        <div class="kor-line">예를 들어, 택시 운전사는 고객들이 나중에 서비스 비용을 지불하기로 약속했기 때문에 고객들을 태워서 원하는 목적지로 운반하고, 건설 노동자는 고용주가 월말에 급여를 지불하기로 신뢰할 수 있는 약속을 했기 때문에 매일 일을 수행한다.</div>
+      </div>
+
+      <div class="sent key-sent">
+        <div class="sent-num">★ 결론</div>
+        <div class="eng-line">Thus, social objects and institutions such as jobs, money, government, scientific collaborations and marriage depend for their origin and stability upon the credibility of commitments.</div>
+        <div class="parse-box">
+          <div class="phrase"><span class="plabel subj">S</span><span class="peng">social objects and institutions such as jobs, money, government, scientific collaborations and marriage</span><span class="pkor">직업, 돈, 정부, 과학 협력, 결혼 같은 사회적 대상과 제도들</span></div>
+          <div class="phrase"><span class="plabel verb">V</span><span class="peng">depend</span><span class="pkor">의존하다</span></div>
+          <div class="phrase"><span class="plabel mod">for</span><span class="peng">for their origin and stability upon the credibility of commitments</span><span class="pkor">그들의 기원과 안정성을 위해 약속의 신뢰성에</span></div>
+        </div>
+        <div class="vocab-badges"><span class="badge key">make a credible commitment: 신뢰할 수 있는 약속을 하다 = establish trustworthy commitment</span></div>
+        <div class="kor-line">따라서 직업, 돈, 정부, 과학 협력, 결혼 같은 사회적 대상과 제도들은 그들의 기원과 안정성을 위해 약속의 신뢰성에 의존한다.</div>
+      </div>
+
+      <div class="choices">
+        <div class="choice correct"><span class="cnum">①</span> ✓ 약속에 대한 신뢰가 사회 체계를 형성하고 지탱한다.</div>
+        <div class="choice"><span class="cnum">②</span> 사회적 압력이 개인의 비자발적인 행동을 유도한다.</div>
+        <div class="choice"><span class="cnum">③</span> 사회가 발전함에 따라 사회 제도가 더 복잡해진다.</div>
+        <div class="choice"><span class="cnum">④</span> 사회 구성원들 간의 결속은 인위적으로 유지될 수 없다.</div>
+        <div class="choice"><span class="cnum">⑤</span> 위험도에 따른 차등적 보상의 약속이 직업 선택의 기준이 된다.</div>
+      </div>
+
+      <div class="summary-box">
+        <div class="sum-item">
+          <div class="sum-label answer">🎯 정답 및 근거</div>
+          <div class="sum-content">정답 ①번. 글의 전체 논지는 commitment의 credibility가 사회 제도의 origin과 stability를 결정한다는 것이다. 택시 운전사, 건설 노동자, 중앙은행의 사례를 통해 약속에 대한 신뢰가 사회 체계를 형성하고 유지하는 핵심 요소임을 보여준다.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q23: 제목 -->
+  <div class="q-panel" id="q23">
+    <div class="q-card">
+      <div class="q-title">
+        <span class="q-num">23</span>
+        <span class="q-type">다음 글의 제목으로 가장 적절한 것은?</span>
+        <span class="q-type-tag title">제목</span>
+      </div>
+
+      <div class="sent key-sent">
+        <div class="sent-num">01</div>
+        <div class="eng-line">Since their start in the early 1950s U.S. television sitcoms have charted many of the social conflicts in U.S. society: civil rights, women's rights in the home and in the workplace, children's rights, immigration and multiculturalism, as well as evolving conceptions of the family.</div>
+        <div class="vocab-badges"><span class="badge key">chart: 기록하다, 다루다 = document, depict</span></div>
+        <div class="kor-line">1950년대 초 시작 이래로, 미국 텔레비전 시트콤은 미국 사회의 많은 사회적 갈등을 다루어왔다.</div>
+      </div>
+
+      <div class="sent key-sent">
+        <div class="sent-num">02</div>
+        <div class="eng-line">Each of these issues has been addressed through humour in a way that has helped to make more progressive values more acceptable than previously.</div>
+        <div class="kor-line">이러한 각 쟁점은 유머를 통해 더욱 진보적인 가치를 이전보다 더 수용 가능하게 만드는 방식으로 다루어져왔다.</div>
+      </div>
+
+      <div class="sent">
+        <div class="sent-num">03</div>
+        <div class="eng-line">Often a character, usually someone marked as a bigot, resisted one or more of these developments and was then made to appear ridiculous.</div>
+        <div class="vocab-badges"><span class="badge syn">ridiculous: 우습다 = absurd</span></div>
+        <div class="kor-line">종종 보통 편견을 가진 사람으로 표시되는 캐릭터가 이러한 발전 중 하나 이상에 저항했고, 그 후 우스꽝스럽게 보이도록 만들어졌다.</div>
+      </div>
+
+      <div class="sent">
+        <div class="sent-num">04</div>
+        <div class="eng-line">They were cut down either through their own stupidity, a brief scolding from others, or both.</div>
+        <div class="vocab-badges"><span class="badge syn">cut down: 비판하다 = criticize</span></div>
+        <div class="kor-line">그들은 그들 자신의 어리석음, 다른 사람들로부터의 짧은 꾸중, 또는 둘 다를 통해 비판받았다.</div>
+      </div>
+
+      <div class="sent key-sent">
+        <div class="sent-num">★ 결론</div>
+        <div class="eng-line">In this way, the humour of sitcoms acted as a cost-effective means to encourage acceptance of a more pluralistic and tolerant society.</div>
+        <div class="vocab-badges"><span class="badge key">act as: ~의 역할을 하다 = serve as, function as</span></div>
+        <div class="kor-line">이러한 방식으로, 시트콤의 유머는 더욱 다원주의적이고 관용적인 사회의 수용을 장려하는 비용 효율적인 수단으로 작용했다.</div>
+      </div>
+
+      <div class="choices">
+        <div class="choice"><span class="cnum">①</span> Why Do Sitcoms Criticize Progressive Ideas?</div>
+        <div class="choice"><span class="cnum">②</span> Acceptability of Humour in Multicultural Society</div>
+        <div class="choice"><span class="cnum">③</span> The Decline of U.S. Sitcoms along with Social Change</div>
+        <div class="choice"><span class="cnum">④</span> Production Costs: Why TV Commercials Are Necessary</div>
+        <div class="choice correct"><span class="cnum">⑤</span> ✓ Humour in Sitcoms Helps Acceptance of Progressive Values</div>
+      </div>
+
+      <div class="summary-box">
+        <div class="sum-item">
+          <div class="sum-label logic">💡 핵심 논리</div>
+          <div class="sum-content">미국 시트콤은 사회적 갈등을 유머로 다루어왔으며, 진보적 가치를 반대하는 편견의 캐릭터를 우스꽝스럽게 표현함으로써 진보적 가치의 수용을 장려하는 비용 효율적인 수단이 되어왔다.</div>
+        </div>
+        <div class="sum-item">
+          <div class="sum-label answer">🎯 정답 및 근거</div>
+          <div class="sum-content">정답 ⑤번. 글의 전체 논지는 시트콤의 유머가 진보적 가치를 수용하도록 도와준다는 것이다.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q24: 제목 (도표 분석) -->
+  <div class="q-panel" id="q24">
+    <div class="q-card">
+      <div class="q-title">
+        <span class="q-num">24</span>
+        <span class="q-type">다음 글의 제목으로 가장 적절한 것은?</span>
+        <span class="q-type-tag title">제목</span>
+      </div>
+
+      <div class="sent key-sent">
+        <div class="sent-num">01</div>
+        <div class="eng-line">If the brain has already stored someone's face and name, why do we still end up remembering one and not the other?</div>
+        <div class="kor-line">뇌가 이미 누군가의 얼굴과 이름을 저장했다면, 왜 우리는 결국 하나는 기억하고 다른 하나는 기억하지 못하게 되는가?</div>
+      </div>
+
+      <div class="sent key-sent">
+        <div class="sent-num">★ 핵심</div>
+        <div class="eng-line">This is because the brain has something of a two-tier memory system at work when it comes to retrieving memories, and this gives rise to a common yet infuriating sensation: recognising someone, but not being able to remember their name.</div>
+        <div class="kor-line">이는 뇌가 기억을 회수할 때 어느 정도 2단계 기억 체계를 작동시키고 있기 때문이며, 이는 흔하지만 짜증나는 감각을 야기한다: 누군가를 인식하지만 그들의 이름을 기억하지 못하는.</div>
+      </div>
+
+      <div class="sent key-sent">
+        <div class="sent-num">★ 정의</div>
+        <div class="eng-line">This happens because the brain differentiates between familiarity and recall.</div>
+        <div class="vocab-badges"><span class="badge syn">differentiate: 구분하다 = distinguish</span></div>
+        <div class="kor-line">이는 뇌가 친숙성과 회상을 구분하기 때문에 일어난다.</div>
+      </div>
+
+      <div class="sent key-sent">
+        <div class="sent-num">04</div>
+        <div class="eng-line">To clarify, familiarity (or recognition) is when you encounter someone or something and you know you've done so before.</div>
+        <div class="kor-line">명확히 하자면, 친숙성(또는 인식)은 당신이 누군가 또는 무언가를 만나고 전에 그렇게 한 것을 알 때이다.</div>
+      </div>
+
+      <div class="sent key-sent">
+        <div class="sent-num">06</div>
+        <div class="eng-line">Recall is when you can access the original memory of how and why you know this person; recognition is just flagging up the fact that the memory exists.</div>
+        <div class="kor-line">회상은 당신이 이 사람을 아는 방법과 이유의 원래 기억에 접근할 수 있을 때이고; 인식은 단지 기억이 존재한다는 사실을 표시하는 것이다.</div>
+      </div>
+
+      <div class="choices">
+        <div class="choice"><span class="cnum">①</span> process of recalling details from partial memories</div>
+        <div class="choice"><span class="cnum">②</span> impact of emotional responses on memory retrieval patterns</div>
+        <div class="choice"><span class="cnum">③</span> dangers of memory loss regarding face and name recognition</div>
+        <div class="choice"><span class="cnum">④</span> ways to manage the difficulty of recognising faces and names</div>
+        <div class="choice correct"><span class="cnum">⑤</span> ✓ distinction between recall and familiarity in the memory system</div>
+      </div>
+
+      <div class="summary-box">
+        <div class="sum-item">
+          <div class="sum-label logic">💡 핵심 논리</div>
+          <div class="sum-content">뇌의 기억 시스템은 2단계로 작동하며, familiarity(인식/친숙성)와 recall(회상/상세 기억)을 구분한다. 이러한 구분이 얼굴은 기억하면서 이름을 기억하지 못하는 현상을 설명한다.</div>
+        </div>
+        <div class="sum-item">
+          <div class="sum-label answer">🎯 정답 및 근거</div>
+          <div class="sum-content">정답 ⑤번. 글의 핵심은 뇌의 기억 시스템이 recognition(인식/familiarity)과 recall(회상)이라는 두 개의 서로 다른 메커니즘을 사용한다는 것이다.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q29: 어법 -->
+  <div class="q-panel" id="q29">
+    <div class="q-card">
+      <div class="q-title">
+        <span class="q-num">29</span>
+        <span class="q-type">어법 문제 (오류 찾기)</span>
+        <span class="q-type-tag vocab">어법</span>
+      </div>
+
+      <div class="sent">
+        <div class="sent-num">01-03</div>
+        <div class="eng-line">The prominence of the social dimension in food writing might suggest that the flavor of food is taking a back seat. I suspect that most people view flavor as of secondary importance in social settings where food is served. Although our social gatherings coalesce around food, the meaning of these gatherings does not seem to depend on flavor.</div>
+        <div class="vocab-badges"><span class="badge key">take a back seat: 뒤로 물러나다 = recede</span></div>
+        <div class="kor-line">음식 저술에서 사회적 차원의 중요성은 음식의 맛이 뒤로 물러나고 있다는 것을 시사할 수 있다. 나는 대부분의 사람들이 음식이 제공되는 사회 환경에서 맛을 부차적인 중요성으로 본다고 의심한다. 비록 우리의 사회 모임이 음식을 중심으로 응집되지만, 이러한 모임들의 의미는 맛에 달려 있지 않은 것처럼 보인다.</div>
+      </div>
+
+      <div class="sent key-sent">
+        <div class="sent-num">★ 핵심 문장</div>
+        <div class="eng-line">According to this conventional wisdom, the ceremonies and rituals around food, the social events that supply food with its meaning, <u>does</u> not depend on the quality of sensations provided by the food.</div>
+        <div class="parse-box">
+          <div class="phrase"><span class="plabel subj">S</span><span class="peng">the ceremonies and rituals around food, the social events that supply food with its meaning</span><span class="pkor">음식 주변의 의식과 의례, 음식에 의미를 부여하는 사회 행사들</span></div>
+          <div class="phrase"><span class="plabel verb">V</span><span class="peng">does not depend on</span><span class="pkor">~에 달려 있지 않다</span></div>
+          <div class="phrase"><span class="plabel obj">O</span><span class="peng">the quality of sensations provided by the food</span><span class="pkor">음식이 제공하는 감각의 질</span></div>
+        </div>
+        <div class="grammar-note">
+          <span class="gn-tag grammar">★어법</span>
+          주어 "the ceremonies and rituals... the social events..."는 2개 항목의 복합 주어로 복수이므로 <u>does</u>는 오류. <br><strong>올바른 형태: do</strong>. 복수 주어는 복수 동사와 일치해야 함
+        </div>
+        <div class="vocab-badges"><span class="badge key">conventional wisdom: 통상적인 지혜 = common belief</span></div>
+        <div class="kor-line">이러한 통상적인 지혜에 따르면, 음식 주변의 의식과 의례, 음식에 의미를 부여하는 사회 행사들은 음식이 제공하는 감각의 질에 달려 있지 않다.</div>
+      </div>
+
+      <div class="summary-box">
+        <div class="sum-item">
+          <div class="sum-label answer">🎯 정답</div>
+          <div class="sum-content"><strong>④ does → do</strong><br>주어: "the ceremonies and rituals around food, the social events that supply food with its meaning"<br>이는 2개의 명사구를 쉼표로 연결한 복합 주어로, 문법적으로 복수 취급됩니다. 따라서 동사도 복수형 do를 사용해야 합니다.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q30: 어휘 -->
+  <div class="q-panel" id="q30">
+    <div class="q-card">
+      <div class="q-title">
+        <span class="q-num">30</span>
+        <span class="q-type">어휘 문제 (오류 찾기)</span>
+        <span class="q-type-tag vocab">어휘</span>
+      </div>
+
+      <div class="sent key-sent">
+        <div class="sent-num">핵심 문장</div>
+        <div class="eng-line">Their article shaped a generation of changes in eating patterns that appears to have <u>discouraged</u> higher use of sugar, now widely implicated as a source of the rise in obesity and diabetes.</div>
+        <div class="parse-box">
+          <div class="phrase"><span class="plabel subj">S</span><span class="peng">Their article</span><span class="pkor">그들의 논문</span></div>
+          <div class="phrase"><span class="plabel verb">V</span><span class="peng">shaped / appears to have discouraged</span><span class="pkor">형성했다 / 억제한 것으로 보인다</span></div>
+          <div class="phrase"><span class="plabel obj">O</span><span class="peng">a generation of changes / higher use of sugar</span><span class="pkor">식이 패턴 변화의 세대 / 더 높은 설탕 사용</span></div>
+        </div>
+        <div class="grammar-note">
+          <span class="gn-tag grammar">★어휘</span>
+          <u>discouraged</u>는 오류: 설탕 업계가 자금을 댄 연구가 식이 지방을 문제시 → 실제로는 설탕 사용이 증가함. <br><strong>올바른 단어: fostered (촉진했다)</strong>
+        </div>
+        <div class="vocab-badges"><span class="badge ant">discouraged: 억제했다 ≠ fostered (촉진했다)</span></div>
+        <div class="kor-line">그들의 논문은 식이 패턴 변화의 한 세대를 형성했으며, 이는 설탕의 높은 사용을 억제한 것으로 보이지만, 설탕은 현재 비만과 당뇨병 증가의 원인으로 널리 연루되어 있다.</div>
+      </div>
+
+      <div class="summary-box">
+        <div class="sum-item">
+          <div class="sum-label answer">🎯 정답</div>
+          <div class="sum-content"><strong>④ discouraged → fostered</strong><br>문맥 분석: 설탕 업계가 자금을 댄 하버드 연구자들이 식이 지방의 문제를 강조하는 연구를 발표하고 논문이 영향력을 미쳤습니다. 이는 식이 지방(fat)에 대한 우려를 키웠고, 결과적으로 설탕 사용은 억제되지 않고 오히려 촉진되었습니다.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q31: 빈칸 -->
+  <div class="q-panel" id="q31">
+    <div class="q-card">
+      <div class="q-title">
+        <span class="q-num">31</span>
+        <span class="q-type">빈칸 채우기</span>
+        <span class="q-type-tag blank">빈칸</span>
+      </div>
+
+      <div class="sent key-sent">
+        <div class="sent-num">01</div>
+        <div class="eng-line">The explosion of popular music in the second half of the twentieth century as well as the global circulation and dissemination of music by the creative industries propelled a new understanding of <span style="background:var(--green-mid);padding:2px 8px;border-radius:100px;font-weight:700;color:var(--green);">accessibility</span> in relation to music.</div>
+        <div class="grammar-note"><span class="gn-tag blank">★빈칸</span> 명사구로 propel의 목적어 역할. "접근성"이 20세기 후반 대중음악 폭발의 핵심 주제.</div>
+        <div class="kor-line">20세기 후반 대중음악의 폭발과 음악 산업의 전 지구적 유통은 음악과 관련된 접근성에 대한 새로운 이해를 촉진했다.</div>
+      </div>
+
+      <div class="sent key-sent">
+        <div class="sent-num">★ 근거</div>
+        <div class="eng-line">This approach led to the punk movement, whose musicians even made it a condition for their music to be non-virtuosic and accessible to all in the 1970s.</div>
+        <div class="vocab-badges"><span class="badge key">accessible: 접근 가능한 = available, open</span></div>
+        <div class="kor-line">이 접근 방식은 펑크 운동으로 이어졌고, 펑크 뮤지션들은 1970년대에 자신들의 음악이 비교적 단순하고 누구나 접근 가능하도록 하는 것을 조건으로 삼았다.</div>
+      </div>
+
+      <div class="choices">
+        <div class="choice correct"><span class="cnum">①</span> ✓ accessibility</div>
+        <div class="choice"><span class="cnum">②</span> responsibility</div>
+        <div class="choice"><span class="cnum">③</span> exchange</div>
+        <div class="choice"><span class="cnum">④</span> preservation</div>
+        <div class="choice"><span class="cnum">⑤</span> profitability</div>
+      </div>
+
+      <div class="summary-box">
+        <div class="sum-item">
+          <div class="sum-label logic">💡 핵심 논리</div>
+          <div class="sum-content">20세기 후반 대중음악의 폭발적 성장으로 음악 제작의 "접근성"이 비약적으로 향상됨. 누구나 악기를 구해 밴드를 시작할 수 있게 되었고, 펑크 운동은 "non-virtuosic and accessible to all"을 표방하며 음악의 민주화를 추진함.</div>
+        </div>
+        <div class="sum-item">
+          <div class="sum-label answer">🎯 정답 및 근거</div>
+          <div class="sum-content">정답: ① accessibility<br>직접적 근거: Sentence 5의 "non-virtuosic and accessible to all"이 빈칸의 답과 동일한 개념을 표현.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q32: 빈칸 -->
+  <div class="q-panel" id="q32">
+    <div class="q-card">
+      <div class="q-title">
+        <span class="q-num">32</span>
+        <span class="q-type">빈칸 채우기</span>
+        <span class="q-type-tag blank">빈칸</span>
+      </div>
+
+      <div class="sent key-sent">
+        <div class="sent-num">★ 대조 구조</div>
+        <div class="eng-line">Therefore, future success goes to those who have had success earlier, not because of advantages offered by the previous success, but because the earlier success was <span style="background:var(--green-mid);padding:2px 8px;border-radius:100px;font-weight:700;color:var(--green);">indicative of a hidden talent</span>.</div>
+        <div class="parse-box">
+          <div class="phrase"><span class="plabel subj">S</span><span class="peng">future success</span><span class="pkor">미래의 성공</span></div>
+          <div class="phrase"><span class="plabel verb">V</span><span class="peng">goes</span><span class="pkor">간다 = 돌아간다</span></div>
+          <div class="phrase"><span class="plabel obj">O</span><span class="peng">those who have had success earlier</span><span class="pkor">이전에 성공한 사람들</span></div>
+        </div>
+        <div class="grammar-note">
+          <span class="gn-tag blank">★빈칸 - 핵심 대조 구조</span>
+          "not because of advantages offered by the previous success, but because ___" 구조. 이전 성공이 (1) 사회적 이점을 주기 때문이 아니라 (2) 숨겨진 재능의 지표였기 때문이라는 대조.
+        </div>
+        <div class="vocab-badges"><span class="badge key">indicative of: ~을 나타내는, ~의 지표인 = suggestive of</span></div>
+        <div class="kor-line">따라서 미래의 성공은 이전에 성공한 사람들에게 돌아가는데, 이전 성공이 제공한 이점 때문이 아니라 이전의 성공이 숨겨진 재능의 지표였기 때문이다.</div>
+      </div>
+
+      <div class="choices">
+        <div class="choice"><span class="cnum">①</span> inseparable from consistent efforts</div>
+        <div class="choice"><span class="cnum">②</span> attributed to talented collaborators</div>
+        <div class="choice"><span class="cnum">③</span> dependent on financial resources</div>
+        <div class="choice"><span class="cnum">④</span> driven by societal recognition</div>
+        <div class="choice correct"><span class="cnum">⑤</span> ✓ indicative of a hidden talent</div>
+      </div>
+
+      <div class="summary-box">
+        <div class="sum-item">
+          <div class="sum-label logic">💡 핵심 논리</div>
+          <div class="sum-content">반복된 과학적 성공을 설명하는 두 가지 이론:<br><strong>Matthew Effect:</strong> 이전 성공 → 사회적 이점 → 미래 성공<br><strong>대안설명:</strong> 재능 → 초기 성공 / 재능 → 반복 성공<br>빈칸 문제는 "이전의 성공 자체가 무엇이었는가?"를 묻는 것. 답은 "그것이 숨겨진 재능의 지표였다"는 뜻의 indicative of a hidden talent.</div>
+        </div>
+        <div class="sum-item">
+          <div class="sum-label answer">🎯 정답 및 근거</div>
+          <div class="sum-content">정답: ⑤ indicative of a hidden talent<br>구조적 근거: "not because of advantages offered by the previous success, but because the earlier success was ___" 구조에서, 이전 성공이 (1) 직접적인 사회적 이점을 주기 때문이 아니라 (2) 무엇인가의 지표였기 때문이라고 주장.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q33: 빈칸 -->
+  <div class="q-panel" id="q33">
+    <div class="q-card">
+      <div class="q-title">
+        <span class="q-num">33</span>
+        <span class="q-type">빈칸 채우기</span>
+        <span class="q-type-tag blank">빈칸</span>
+      </div>
+
+      <div class="sent key-sent">
+        <div class="sent-num">01</div>
+        <div class="eng-line">When we realize we've said something in error and we pause to go back to correct it, we stop gesturing a couple of hundred milliseconds before we stop speaking.</div>
+        <div class="vocab-badges"><span class="badge syn">gesture: 제스처하다 = gesture with hands</span></div>
+        <div class="kor-line">우리가 실수를 했음을 깨닫고 이를 바로잡기 위해 돌아갈 때, 우리가 말하기를 멈추기 몇 백 밀리초 전에 제스처하기를 멈춘다.</div>
+      </div>
+
+      <div class="sent">
+        <div class="sent-num">02</div>
+        <div class="eng-line">Such sequences suggest the startling notion that our hands "know" what we're going to say before our conscious minds do, and in fact this is often the case.</div>
+        <div class="kor-line">그러한 순서들은 우리의 손이 우리의 의식적인 마음보다 먼저 우리가 말할 것을 "안다"는 놀라운 개념을 암시한다.</div>
+      </div>
+
+      <div class="sent">
+        <div class="sent-num">03</div>
+        <div class="eng-line">Gesture can mentally prime a word so that the right term comes to our lips.</div>
+        <div class="vocab-badges"><span class="badge key">prime: 준비하다 = prepare</span></div>
+        <div class="kor-line">제스처는 정신적으로 단어를 준비시켜서 올바른 표현이 우리 입에 나오도록 할 수 있다.</div>
+      </div>
+
+      <div class="sent">
+        <div class="sent-num">04</div>
+        <div class="eng-line">When people are prevented from gesturing, they talk less fluently; their speech becomes halting because their hands are no longer able to supply them with the next word, and the next.</div>
+        <div class="vocab-badges"><span class="badge key">supply: 공급하다 = provide</span></div>
+        <div class="kor-line">사람들이 제스처를 하지 못하도록 방해받으면, 그들은 덜 유창하게 말하고; 그들의 손이 더 이상 그들에게 다음 단어를 제공할 수 없기 때문에 그들의 말은 끊기는 것이 된다.</div>
+      </div>
+
+      <div class="sent key-sent">
+        <div class="sent-num">★ 핵심</div>
+        <div class="eng-line">Far from tagging along as speech's clumsy companion, gesture <span style="background:var(--green-mid);padding:2px 8px;border-radius:100px;font-weight:700;color:var(--green);">represents the leading edge of our thought</span>.</div>
+        <div class="parse-box">
+          <div class="phrase"><span class="plabel subj">S</span><span class="peng">gesture</span><span class="pkor">제스처</span></div>
+          <div class="phrase"><span class="plabel verb">V</span><span class="peng">[blank]</span><span class="pkor">represents the leading edge of our thought</span></div>
+        </div>
+        <div class="grammar-note">
+          <span class="gn-tag blank">★빈칸</span>
+          "Far from ~"은 부정 표현으로 "~이 아니라"를 의미. 이 구조는 뒤에 올 서술어의 역설적 대조를 준비함. 제스처는 말의 수동적 동반자가 아니라 사고의 최전선(leading edge)을 나타낸다는 적극적 주장.
+        </div>
+        <div class="vocab-badges"><span class="badge key">tag along: follow passively = 수동적으로 따라가다</span><span class="badge key">leading edge: 최전선, 선도적 부분 = forefront</span></div>
+        <div class="kor-line">말의 서툰 동반자로서 따라가는 것이 아니라, 제스처는 우리 사고의 최전선을 나타낸다.</div>
+      </div>
+
+      <div class="choices">
+        <div class="choice"><span class="cnum">①</span> interrupts the rhythm of our narrative</div>
+        <div class="choice correct"><span class="cnum">②</span> ✓ represents the leading edge of our thought</div>
+        <div class="choice"><span class="cnum">③</span> illustrates the afterthoughts of our speaking</div>
+        <div class="choice"><span class="cnum">④</span> conceals the deep-seated intention of our speech</div>
+        <div class="choice"><span class="cnum">⑤</span> operates independently of our cognitive functions</div>
+      </div>
+
+      <div class="summary-box">
+        <div class="sum-item">
+          <div class="sum-label logic">💡 핵심 논리</div>
+          <div class="sum-content">손이 입보다 먼저 움직임 (S1) → 제스처가 단어를 준비시킴 (S3) → 제스처 없이는 말이 덜 유창, 기억력 저하, 문제 해결 능력 감소 (S4) → 결론: 제스처는 "사고의 선도적 역할(leading edge)"</div>
+        </div>
+        <div class="sum-item">
+          <div class="sum-label answer">🎯 정답 및 근거</div>
+          <div class="sum-content">정답: ② represents the leading edge of our thought<br>구조적 근거: "Far from tagging along as ~" (말을 따라가는 게 아니라) → 제스처는 "사고의 선도적 역할(leading edge)"을 나타낸다는 의미. <br>논리적 근거: 손이 입보다 먼저 움직이고, 제스처가 단어를 준비시키고, 제스처 없이는 인지 기능이 저하되므로 제스처가 우리 생각의 최전선(leading edge)을 나타낸다.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="brand">동남고2 2026 1학기 중간고사 모의고사 시험범위 분석</div>
+    <div class="by">Witheun by.은서쌤</div>
+  </div>
+</div>
+
+<script>
+const pills = document.querySelectorAll('.pill');
+const panels = document.querySelectorAll('.q-panel');
+
+pills.forEach(pill => {
+  pill.addEventListener('click', () => {
+    pills.forEach(p => p.classList.remove('active'));
+    panels.forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    document.getElementById(pill.dataset.q).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+
+document.addEventListener('keydown', e => {
+  const active = document.querySelector('.pill.active');
+  const allPills = [...pills];
+  const idx = allPills.indexOf(active);
+  if (e.key === 'ArrowRight' && idx < allPills.length - 1) allPills[idx+1].click();
+  else if (e.key === 'ArrowLeft' && idx > 0) allPills[idx-1].click();
+});
+</script>
+
+</body>
+</html>
